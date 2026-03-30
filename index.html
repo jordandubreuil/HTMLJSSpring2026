@@ -3,11 +3,57 @@
     <head>
         <title>Main Page for the HTML JavaScript Class</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="Week1/css/style.css">
     </head>
     <body>
-        <h1>Welcome to the HTML JavaScript Class Page</h1>
-        <h2>Links to our Lectures and Assignments are below:</h2>
-        <a href="Week1/index.html">Link to Week one In Class Work</a>
-        <p>Until we meet again next class.... Ha hA HAAAAA</p>
+        <!--Header and Navigation-->
+        <header class="nav">
+           <h1>Welcome to the HTML JavaScript Class Page</h1>
+           <nav>
+                <a href="Week1/about.html">About</a>
+           </nav> 
+        </header>
+        <!--Section For In-Class Work-->
+        <section>
+            <h2>Weekly In-Class Work</h2>
+
+            <div class="card">
+                <div class="card-content">
+                    <h4>Week 1</h4>
+                    <p>Week one in class work</p>
+                    <a href="Week1/index.html" class="btn-primary">Link to Week one In Class Work</a>
+                </div>
+                <div class="card-content">
+                    <h4>Week 2</h4>
+                    <p>Coming Soon!</p>
+                    <a href="#" class="btn-primary">Coming Soon</a>
+                </div>
+            </div>
+        </section>
+        <!--Featured Games-->
+        <section id="games">
+            <div class="grid">
+                <div class="card-small">
+                    <div class="card-image placeholder"></div>
+                    <div class="card-content">
+                        <h4>Game Placeholder</h4>
+                        <p>More games coming soon...</p>
+                    </div>
+                </div>
+
+                <div class="card-small">
+                    <div class="card-image placeholder"></div>
+                    <div class="card-content">
+                        <h4>Game Placeholder</h4>
+                        <p>More games coming soon...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Footer-->
+        <footer>
+            <p>&copy; 2026 HTML/JavaScript</p>
+        </footer>        
     </body>
 </html>

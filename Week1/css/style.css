@@ -26,3 +26,97 @@ body{
     color: #e2e8f0;
     text-decoration: none;
 }
+
+section{
+    padding: 1.5rem 1rem;
+    
+}
+
+section h2{
+    margin-bottom: 1rem;
+}
+
+footer{
+    text-align: center;
+    padding: 1rem;
+    color: #94a3b8;
+}
+
+img{
+    width:100%;
+    max-width: 600px;
+}
+
+/*Styles for button */
+.btn-primary{
+    display: inline-block;
+    background: #20ade9;
+    color: black;
+    padding: 0.7rem 1.2rem;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*Cards*/
+.card{
+    background: #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card.small{
+    padding: 0.5rem;
+}
+
+.card-image{
+    height: 160px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder{
+    border: 2px dashed #334155;
+    color: #1e293b;
+}
+
+.card-content{
+    color: whitesmoke;
+    margin-bottom: 0.7em;
+}
+
+.card-content h4{
+    margin-bottom: 0.3em;
+}
+
+.card-content p{
+    color: whitesmoke;
+    margin-bottom: 0.7em;
+}
+
+
+
+/*Mobile Tablet and Phone*/
+@media (min-width: 768px){
+    section h2{
+        font-size: 2.2rem;
+    }
+    img{
+        max-width: 300px;
+    }
+}
+
+/*Desktop*/
+@media (min-width: 769px){
+    section h2{
+        font-size: 3.5rem;
+        text-align: center;
+    }
+    img{
+        display: block;
+        margin: auto;
+        max-width: 800px;
+    }
+}
