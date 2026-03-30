@@ -13,3 +13,16 @@ body{
     color: #e2e8f0;
     line-height: 1.5;
 }
+
+.nav{
+    display: flex;
+    background: #0f172a;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav a{
+    color: #e2e8f0;
+    text-decoration: none;
+}
