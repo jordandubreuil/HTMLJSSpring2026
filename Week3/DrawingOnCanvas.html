@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Week 3 Drawing on Canvas Lab</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Drawing on Canvas Example</h1>
+        <canvas id="canvas" width="800" height="600" style="border: 1px solid black;"></canvas>
+        
+        <!-- IN document JavaScript -->
+        <script>
+            //These variables are used to set up the canvas
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = "red";
+            //Draw a Rectangle
+            ctx.fillRect(20,20, 50,100);
+
+            ctx.fillStyle = "#00ff00";
+            ctx.fillRect(80,20,50,100);
+
+            //Outline Box
+            ctx.strokeStyle = "orange";
+            ctx.strokeRect(140,20,50,100);
+
+            ctx.strokeStyle = "purple";
+            ctx.strokeRect(200,20,50,100);
+        </script>
+    </body>
+</html>
