@@ -27,6 +27,62 @@
 
             ctx.strokeStyle = "purple";
             ctx.strokeRect(200,20,50,100);
+
+            //Lets draw a circle
+            ctx.strokeStyle = "green";
+            ctx.beginPath();
+            //All the commands for drawing the circle will go between here
+            ctx.arc(50, 200, 20, 0, 2*Math.PI)
+            ctx.stroke();
+
+            //Circle 2
+            ctx.strokeStyle = "red";
+            ctx.beginPath();
+            //All the commands for drawing the circle will go between here
+            ctx.arc(100, 200, 20, 0, 2*Math.PI)
+            ctx.stroke();
+
+            //Circle 3 Filled
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            //All the commands for drawing the circle will go between here
+            ctx.arc(150, 200, 20, 0, 2*Math.PI)
+            ctx.fill();
+
+            //Circle 4 filled with an outline
+            ctx.strokeStyle = "green";
+            ctx.fillStyle = "black";
+            ctx.lineWidth = 5.0;
+            ctx.beginPath();
+            //All the commands for drawing the circle will go between here
+            ctx.arc(200, 200, 20, 0, 2*Math.PI)
+            ctx.fill();
+            ctx.stroke();
+
+            //Let's draw some custom shapes
+            ctx.lineWidth = 1.0;
+            ctx.beginPath();
+            ctx.moveTo(50,300);
+            ctx.lineTo(75,350);
+            ctx.lineTo(25,350);
+            ctx.lineTo(50,300);
+            ctx.stroke();
+            //Triangle 2
+            ctx.strokeStyle = "purple"
+            ctx.beginPath();
+            ctx.moveTo(150,300);
+            ctx.lineTo(175,350);
+            ctx.lineTo(125,350);
+            ctx.lineTo(150,300);
+            ctx.stroke();
+            //Triangle 3
+            ctx.fillStyle = "purple"
+            ctx.beginPath();
+            ctx.moveTo(250,300);
+            ctx.lineTo(275,350);
+            ctx.lineTo(225,350);
+            ctx.lineTo(250,300);
+            ctx.fill();
         </script>
     </body>
 </html>
