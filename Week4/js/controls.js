@@ -10,9 +10,11 @@ var up = false;
 var down = false;
 var left = false;
 var right = false;
+var space = false;
 
 function keyDown(e){
-    console.log("Pressed " + e.key);
+    // console.log("Pressed " + e.key);
+    // console.log("Pressed " + e.keyCode);
     if(e.key == "w"){
         w = true;
     }
@@ -39,10 +41,14 @@ function keyDown(e){
     if(e.key == "ArrowRight"){
         right = true;
     }
+
+    if(e.keyCode == 32){
+        space = true;
+    }
 }
 
 function keyUp(e){
-    console.log("Released " + e.key);
+    //console.log("Released " + e.key);
     if(e.key == "w"){
         w = false;
     }
@@ -68,5 +74,9 @@ function keyUp(e){
     }
     if(e.key == "ArrowRight"){
         right = false;
+    }
+
+    if(e.keyCode == 32){
+        space = false;
     }
 }

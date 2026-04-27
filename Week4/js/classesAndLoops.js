@@ -4,12 +4,18 @@ var ctx = canvas.getContext("2d");
 var interval = 1000/60;
 setInterval(game, interval);
 
+var acceleration = 0.6;//How fast we speed up
+var friction = 0.9; //How fast we speed up or slow down number between 0.0 and 1.0
+var maxspeed = 10; 
+
 function createGameObject() {
     var gameObject = {
         x: randomNumber(115, canvas.width-115),
         y: randomNumber(15, canvas.height-15),
         moveX:setRandomDirection(),
         moveY:setRandomDirection(),
+        velocityX:0,
+        velocityY:0,
         color: `rgb(${randomNumber(0, 255)}, ${randomNumber(0, 255)},${randomNumber(0, 255)})`,
         radius: 15,
         width:15,
@@ -54,12 +60,32 @@ player.height = 30;
 player.color = "purple";
 
 //This creates a collection of objects (balls)
-var myBalls = []
+var myBalls = [];
+var numberOfDots = 10;
 
-for(var i = 0; i<80; i++){
+for(var i = 0; i<numberOfDots; i++){
     myBalls[i] = createGameObject();
     myBalls[i].moveY = 0;
-    myBalls[i].y = -myBalls[i].y;
+    myBalls[i].y = myBalls[i].y;
+}
+
+//Setup our bullets
+var bullets =[];
+var canShoot = true;
+
+function shoot(){
+    var bullet = createGameObject();
+    bullet.x = player.x + player.width/2 - 4;
+    bullet.y = player.y;
+    bullet.width = 8;
+    bullet.height= 10;
+    bullet.color = "green";
+    bullet.velocityY = -10;
+    //Take the bullet and add to the bullets array
+    bullets.push(bullet);
+    canShoot = false;
+    //Cooldown
+    setTimeout(function(){canShoot = true}, 500);
 }
 
 function game(){
@@ -69,18 +95,34 @@ function game(){
 
     //Move the player
     if(w == true || up == true){
-        player.y -= 2;
+        //player.y -= 2;
+        player.velocityY -= acceleration;
     }
     if(s == true  || down == true){
-        player.y += 2;
+        //player.y += 2;
+        player.velocityY += acceleration;
     }
 
     if(a == true || left == true){
-        player.x -= 2;
+        //player.x -= 2;
+        player.velocityX -= acceleration;
     }
     if(d == true  || right == true){
-        player.x += 2;
+        //player.x += 2;
+        player.velocityX += acceleration;
     }
+
+    if(space == true && canShoot){
+        shoot();
+    }
+
+    //To bring velocity back to zero we apply friction
+    player.velocityY *= friction;
+    player.velocityX *= friction;
+
+    //Update Player Position
+    player.x += player.velocityX;
+    player.y += player.velocityY;
 
     //myBall.drawBall();
     player.drawSquare();
@@ -112,8 +154,34 @@ function game(){
         //     myBalls[i].color = `rgb(${randomNumber(0, 255)}, ${randomNumber(0, 255)},${randomNumber(0, 255)})`;
         // }
         //myBalls[i].color = `rgb(${randomNumber(0, 255)}, ${randomNumber(0, 255)},${randomNumber(0, 255)})`;
+
         myBalls[i].x += myBalls[i].moveX;
         myBalls[i].y += myBalls[i].moveY;
+    }
+
+    for(var b = bullets.length - 1; b>=0; b--){
+            bullets[b].x += bullets[b].velocityX;
+            bullets[b].y += bullets[b].velocityY;
+
+            if(bullets[b] + bullets[b].height < 0){
+                bullets.splice(b,1); //Removes bullet from the game, it is off screen
+            }
+
+            for(var e = myBalls.length - 1; e>= 0; e--){
+                //DISTANCE FORMULA
+                var distX = bullets[b].x - myBalls[e].x;
+                var distY = bullets[b].y - myBalls[e].y;
+                var dist = Math.sqrt((distX*distX) + (distY*distY));
+
+                if(dist < myBalls[e].radius){
+                    //Remove the ball from the screen
+                    myBalls.splice(myBalls[e], 1);
+                }
+
+            }
+
+            //Draw bullet to the screen
+            bullets[b].drawSquare();
     }
 
 }
