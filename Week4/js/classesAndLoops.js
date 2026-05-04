@@ -196,11 +196,15 @@ function game() {
             for (var b = bullets.length - 1; b >= 0; b--) {
                 bullets[b].x += bullets[b].velocityX;
                 bullets[b].y += bullets[b].velocityY;
+                //Draw bullet to the screen
+                bullets[b].drawSquare();
 
                 if (bullets[b].y + bullets[b].height < 0) {
-                    bullets.splice(b, 1);
                     //Removes bullet from the game, it is off screen
+                    bullets.splice(b, 1);
+                    continue;
                 }
+                
 
                 for (var e = myBalls.length - 1; e >= 0; e--) {
                     //DISTANCE FORMULA
@@ -218,8 +222,7 @@ function game() {
 
                 }
 
-                //Draw bullet to the screen
-                bullets[b].drawSquare();
+                
             }
             drawHUD();
             break;
