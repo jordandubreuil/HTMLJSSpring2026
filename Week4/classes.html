@@ -9,10 +9,22 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-        }   
+        } 
+        
+        @font-face {
+            font-family: GameFont;
+            src: url(fonts/Daydream.otf);
+        }
+        body{
+            font-family: GameFont;
+        }
+        h1{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <h1>Not Space Invaders</h1>
     <canvas id="myCanvas" width="800" height="600" style="border: 1px solid black;"></canvas>
     <img src="images/Ship.png" alt="image of ship sprite" style="display: none;" id="ship">
     <script src="js/controls.js"></script>

@@ -107,7 +107,7 @@ function shoot() {
 }
 function drawHUD() {
     ctx.fillStyle = "black";
-    ctx.font = "14px Arial";
+    ctx.font = "14px GameFont";
     ctx.fillText(`Ships Defeated ${score} | Ships Left: ${numberOfShips}`, 25, 25);
 }
 
